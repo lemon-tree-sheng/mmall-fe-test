@@ -2,7 +2,7 @@
 * @Author: shengxingyue
 * @Date:   2017-09-02 18:34:21
 * @Last Modified by:   shengxingyue
-* @Last Modified time: 2017-09-03 11:36:43
+* @Last Modified time: 2017-09-03 14:33:57
 */
 /*
 * 使用 webpack 自带的 js 加载器来加载 js 脚本
@@ -45,6 +45,15 @@ var config = {
      		// 处理图片和字体
                {test : /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader : 'url-loader?limit=100&name=resource/[name].[ext]'}
      	]
+     },
+     resolve : {
+          alias : {
+               page : __dirname + '/src/page',
+               view : __dirname + '/src/view',
+               util : __dirname + '/src/util',
+               service : __dirname + '/src/service',
+               image : __dirname + '/src/image'
+          }
      },
      plugins : [
      	// 将公共模块文件如 ./src/page/common/index.js 单独打包，同时将其余入口模块的公共引用也一起打包，使用时页面中需要先
